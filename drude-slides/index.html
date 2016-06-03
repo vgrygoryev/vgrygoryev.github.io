@@ -1,1 +1,244 @@
-test page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Уніфіковане середовище розробки - як новачку швидко включитись в проект</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="styles/screen-16x10.css">
+</head>
+<body class="shower list">
+	<header class="caption">
+		<h1>Уніфіковане середовище розробки - як новачку швидко включитись в проект</h1>
+		<p>Василь Григор’єв, <span style="font-weight: bold">FFW</span></p>
+	</header>
+	<section class="slide black" id="cover">
+		<h2>Уніфіковане середовище розробки</h2>
+		<h3>- як новачку швидко включитись в проект</h3>
+		<p>Василь Григор’єв, <span style="font-weight: bold">FFW</span></p>
+		<img src="pictures/main4.jpg" alt="" class="cover">
+		<style>
+			#cover h2 {
+				color:#FFFFFF;
+				font-size:50px;
+			}
+			#cover h3 {
+				color: #FFFFFF;
+				font-size: 25px;
+				margin-left: 45px;
+			}
+			#cover p {
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+			}
+		</style>
+	</section>
+	<section class="slide">
+		<h2>Що ми вирішуємо і для чого це все?</h2>
+		<img src="pictures/what.jpg" alt="" class="cover">
+		<ul>
+			<li class="next">Створення уніфікованого локального середовища розробки</li>
+			<li class="next">Економія часу на налаштування/розгортання проекту</li>
+			<li class="next">Джуніори мають таке ж середовище, як і інші девелопери</li>
+			<li class="next">Все необхідне підготовлене тими хто робив проект</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Локальне середовище</h2>
+		<img src="pictures/local.jpg" alt="" class="cover">
+		<ul>
+			<li>Рідне середовище (LAMP/MAMP/WAMP/XAMP)</li>
+			<li>Віртуальна машина</li>
+			<li>Vagrant</li>
+		</ul>
+	</section>
+	<section class="slide" id="container2">
+		<h2>Рідне середовище</h2>
+		<img src="pictures/win_macosx_linux.jpg" alt="" class="cover">
+		<ul>
+			<li>працює швидше(?)</li>
+			<li>дуже різне залежно від опереційної системи</li>
+			<li>софт однаковий, але різне налаштування (важко шарити)</li>
+			<li>проекти неізольовані</li>
+			<li>оновлення системи може впливати на середовище розробки</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Віртуальна машина</h2>
+		<img src="pictures/vmware-virualbox.jpg" alt="" class="cover">
+		<ul>
+			<li>важко шарити образи між членами команди</li>
+			<li>зробити оновлення для системи важко для всіх</li>
+			<li>шарінг файлів в віртуалку може бути непростою задачею</li>
+			<li>якщо одна віртуалка для всіх проектів, то ті ж проблеми що і для рідного середовища</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Vagrant</h2>
+		<img src="pictures/vagrant.jpg" alt="" class="cover">
+		<ul>
+			<li>зайва додаткова OS</li>
+			<li>час інсталяції може бути великий</li>
+			<li>зміна налаштування забирає час</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Які ще варіанти?</h2>
+		<img src="pictures/docker2.jpg" class="next cover">
+	</section>
+	<section class="slide">
+		<h2>Коротко про контейнери і як вони працюють?</h2>
+		<ul>
+			<li>ізольовані процеси з заданими ресурсами, запущені на ядрі лінукс</li>
+			<li>namespaces - ізоляція процеса, юзерів, точок монтування, хостів</li>
+			<li>cgroups - обмеження ресурсів для процесу</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>То що ж робить Docker?</h2>
+		<ul>
+			<li>керує контейнерами (клієнт/сервер)</li>
+			<li>забеспечує (багатошарову) файлову систему </li>
+			<li>інструмент для створення, поширення і запуску контейнерів</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Термінологія Docker</h2>
+		<ul>
+			<li>Docker хост - лінукс хост на якому запускаються контейнери</li>
+			<li>Образ - рідонлі теплейт для файлової системи контейнера</li>
+			<li>Контейнер - запущений процес, що використовує образ як темлпейт</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Docker на лінукс</h2>
+		<img src="pictures/docker-linux.jpg" alt="" class="cover">
+	</section>
+	<section class="slide">
+		<h2>Як бути з OS X та Windows? (boot2docker)</h2>
+		<ul>
+			<li>Віртуальна машина на VirtualBox
+				<ul>
+					<li>використовується TinyCore Linux</li>
+					<li>дуже легкий</li>
+					<li>мінімум, що необхідний для запуску докер сервера і контейнерів</li>
+				</ul>
+			</li>
+			<li>контролюється локальним докер-клієнтом</li>
+			<li>не потрібний доступ до віртуалки напряму</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Docker контейнери на різних ОС</h2>
+		<img src="pictures/docker-win-osx-linux.jpg" alt="" class="cover">
+	</section>
+	<section class="slide">
+		<h2>Чому Docker краще?</h2>
+		<img src="pictures/docker3.jpg" alt="" class="cover">
+		<ul>
+			<li>швидка інсталяція</li>
+			<li>гнучка конфігурація при розділенні на контейнери</li>
+			<li>ізольовані проекти</li>
+			<li>легко шарити</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Drude (Drupal Docker Environment)</h2>
+		<img src="pictures/docker4.jpg" alt="" class="cover">
+		<ul>
+			<li>автоінсталяція необхідних утіліт середовища</li>
+			<li>dsh (Drude Shell Helper) - утіліта для упарвління Drude</li>
+			<li>конфігурація для кожного проекту</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Інсталяція Drude</h2>
+		<ul>
+			<li>тільки для Windows: проінсталювати Babun</li>
+			<li>проінсталювати dsh (фактично скачати скрипт і дати права)</li>
+			<li>створити папку для проектів &lt;projects&gt;</li>
+			<li>запустити інсталяцію необхідніх для середовища утіліт у створеній папці:
+				<ul>
+					<li>dsh install prerequisites</li>
+					<li>dsh install boot2docker - для лінкус непотрібно</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Структура папок в Drude</h2>
+		<pre><code style="line-height: 1;">...
++&lt;projects&gt;
+|- drupal-site
+|    docker-compose.yml
+|    docroot
+|    ...
+|
+|- another-drupal-site
+|    .drude
+|    docker-compose.yml
+|    docroot
+|    ...
+|
+|- Vagrantfile (непотрібно для Linux)
+|- vagrant.yml (непотрібно для Linux)</code></pre>
+	</section>
+	<section class="slide">
+		<h2>Проект в Drude і Docker контейнери</h2>
+		<img src="pictures/drude-conf2.jpg" alt="" class="cover">
+		<ul>
+			<li>мінімально 3 конейнери (web, db, cli)</li>
+			<li>можно додати інші (solr, memcached, selenium2)</li>
+			<li>або створити і додати свої</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Деякі dsh команди</h2>
+		<img src="pictures/drude-command.jpg" alt="" class="cover">
+		<ul>
+			<li>dsh init - виконує скрипт .drude/scripts/drude-init.sh</li>
+			<li>dsh start - запускає контейнери проекту</li>
+			<li>dsh drush - виконує drush команду в cli-контейнері в аналогічній папці</li>
+			<li>dsh bash - запускає термінал в cli-контейнері</li>
+			<li>dsh help - список доступних команд</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Зміна версій софта</h2>
+		<img src="pictures/drude-soft-versions.jpg" alt="" class="cover">
+		<p>змінюємо версію змінивши образ на основі якого запускається контейнер</p>
+	</section>
+	<section class="slide">
+		<h2>Легка конфігурація Xdebug для PhpStrom</h2>
+		<img src="pictures/drude-xdebug.jpg" alt="" class="cover">
+		<ul>
+			<li>Xdebug Helper розширення (підтримуються бразери Chrome, Firefox, Safari, Opera)</li>
+			<li>Ввімкнути "Incoming Connection From Xdebug" в PhpStrom</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Деякі інші можливості</h2>
+		<img src="pictures/drude-more.jpg" alt="" class="cover">
+		<ul>
+			<li>підтримка мультисайтингу</li>
+			<li>розширення dsh власними командами</li>
+			<li>швидкі бекапи завдяки докеру</li>
+			<li>докер-сервер може бути на іншому компьютері/сервері</li>
+		</ul>
+	</section>
+	<section class="slide">
+		<h2>Питання?</h2>
+		<img src="pictures/questions.jpg" alt="" class="cover">
+	</section>
+	<section class="slide">
+		<h2>Ресурси/контакти</h2>
+		<ul>
+			<li>https://github.com/blinkreaction/drude</li>
+			<li>Vasyl.Grygoryev@ffwagency.com</li>
+		</ul>
+	</section>
+	<div class="progress"></div>
+	<script src="../../shower.min.js"></script>
+</body>
+</html>
